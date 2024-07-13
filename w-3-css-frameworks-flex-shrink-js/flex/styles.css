@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 200px;
+    background-color: #ddd;
+    border: 2px solid #aaa;
+}
+
+.box {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    font-size: 20px;
+}
+
+/* Flex properties for each box */
+#box1 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 400px;
+}
+
+#box2 {
+    flex-grow: 1;
+    flex-shrink: 2;
+    flex-basis: 400px;
+}
+
+/*
+#box3 {
+    flex-grow: 1;
+    flex-shrink: 2;
+    flex-basis: 100px;
+}
+
+#box4 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+}
+
+#box5 {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px;
+} */
