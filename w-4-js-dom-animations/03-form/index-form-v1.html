@@ -26,7 +26,12 @@
             <form id="myForm">
                 <div>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required />
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="your name"
+                    />
                 </div>
                 <div>
                     <label>Options:</label><br />
@@ -76,6 +81,7 @@
                     const checkboxes = document.querySelectorAll(
                         'input[name="options"]:checked',
                     );
+
                     let selectedOptions = "";
                     for (let i = 0; i < checkboxes.length; i++) {
                         if (i > 0) selectedOptions += ", "; // Add comma separator if not the first item
