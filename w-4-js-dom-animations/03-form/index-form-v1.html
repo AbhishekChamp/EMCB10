@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Form Example</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .form-container,
+            .result-container {
+                margin-bottom: 20px;
+            }
+            .result-item {
+                border: 1px solid #ddd;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <h1>Submit Your Information</h1>
+            <form id="myForm">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+                <div>
+                    <label>Options:</label><br />
+                    <input
+                        type="checkbox"
+                        id="option1"
+                        name="options"
+                        value="Option 1"
+                    />
+                    <label for="option1">Option 1</label><br />
+                    <input
+                        type="checkbox"
+                        id="option2"
+                        name="options"
+                        value="Option 2"
+                    />
+                    <label for="option2">Option 2</label><br />
+                    <input
+                        type="checkbox"
+                        id="option3"
+                        name="options"
+                        value="Option 3"
+                    />
+                    <label for="option3">Option 3</label>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="result-container" id="resultContainer">
+            <h2>Submitted Information:</h2>
+            <!-- Results will be appended here -->
+        </div>
+
+        <script>
+            document
+                .getElementById("myForm")
+                .addEventListener("submit", function (event) {
+                    console.log(event);
+
+                    event.preventDefault(); // Prevent the default form submission
+
+                    // Get the username
+                    const username = document.getElementById("username").value;
+
+                    // Get the checked checkboxes
+                    const checkboxes = document.querySelectorAll(
+                        'input[name="options"]:checked',
+                    );
+                    let selectedOptions = "";
+                    for (let i = 0; i < checkboxes.length; i++) {
+                        if (i > 0) selectedOptions += ", "; // Add comma separator if not the first item
+                        selectedOptions += checkboxes[i].value;
+                    }
+
+                    // Create a new div element for the result
+                    const resultContainer =
+                        document.getElementById("resultContainer");
+                    const resultDiv = document.createElement("div");
+                    resultDiv.className = "result-item";
+                    resultDiv.innerHTML = `
+                <strong>Username:</strong> ${username}<br>
+                <strong>Selected Options:</strong> ${selectedOptions || "None"}
+            `;
+
+                    // Append the new result div to the result container
+                    resultContainer.appendChild(resultDiv);
+
+                    // Clear the form fields
+                    document.getElementById("myForm").reset();
+                });
+        </script>
+    </body>
+</html>

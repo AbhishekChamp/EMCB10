@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Scroll Triggered Animation Example</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+                height: 200vh; /* Make the page taller to enable scrolling */
+                background-color: #f0f0f0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .box-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Center the content vertically in the viewport */
+            }
+
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: #3498db; /* Initial color */
+                position: relative;
+                /* No animation applied initially */
+            }
+
+            .animate {
+                animation-name: moveAndColorChange;
+                animation-duration: 3s;
+                animation-timing-function: ease-in-out;
+                animation-fill-mode: forwards; /* Ensure the box retains the final state */
+            }
+
+            @keyframes moveAndColorChange {
+                0% {
+                    transform: translateX(0);
+                    background-color: #3498db; /* Initial color */
+                }
+                50% {
+                    transform: translateX(200px);
+                    background-color: #e74c3c; /* Mid color */
+                }
+                100% {
+                    transform: translateX(0);
+                    background-color: #3498db; /* Final color (same as initial) */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-container">
+            <div id="box" class="box"></div>
+        </div>
+
+        <script>
+            // Function to check if an element is in the viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <=
+                        (window.innerHeight ||
+                            document.documentElement.clientHeight) &&
+                    rect.right <=
+                        (window.innerWidth ||
+                            document.documentElement.clientWidth)
+                );
+            }
+
+            // Function to handle scroll events
+            function handleScroll() {
+                const box = document.getElementById("box");
+                if (isInViewport(box)) {
+                    // Add animation class and restart animation
+                    box.classList.add("animate");
+                    // Use a timeout to remove the class after the animation duration
+                    setTimeout(() => {
+                        box.classList.remove("animate");
+                    }, 3000); // Duration of the animation in milliseconds
+                }
+            }
+
+            // Add scroll event listener
+            window.addEventListener("scroll", handleScroll);
+
+            // Optionally, check the position on page load in case it's already in view
+            window.addEventListener("load", handleScroll);
+        </script>
+    </body>
+</html>
