@@ -1,1 +1,1 @@
-### This is a test project used for explaining Flex Basis and CSS Positions
+# This repository has all the code snippets that were used in live class sessions.
