@@ -1,0 +1,31 @@
+/* Basic styling for the list */
+.fixed-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+}
+
+.fixed-list li {
+    position: relative;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Add a decorative icon before each list item */
+.fixed-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: green;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.fixed-list li::after {
+    content: " - Checked";
+    color: gray;
+}
+
+.fixed-list li::selection {
+    color: brown;
+    background-color: purple;
+}
