@@ -1,0 +1,24 @@
+.pokemon-detail {
+    text-align: center;
+    padding: 20px;
+    background: #f8d5a3;
+}
+
+.pokemon-image {
+    width: 200px;
+    height: 200px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3d7dca;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #2a5d9f;
+}
